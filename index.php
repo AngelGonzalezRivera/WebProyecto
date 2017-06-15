@@ -224,7 +224,7 @@
 
                         <form action="#buscador" method="get">
                         <input type="text" name="palabra">
-                        <input type="submit" placeholder="Buscar..." name="buscador" value="Buscar">
+                        <input type="submit" placeholder="Buscar..." 
                         </form>
 
                         <?php 
@@ -242,34 +242,13 @@
                         }
                         else
                         {
-                            $xml = simplexml_load_file("http://api.openweathermap.org/data/2.5/find?q=$buscar,&units=mexico&type=accurate&mode=xml&APPID=1604e5ecb495faebb678edacb59ffb16");
-                            $temperatura = $xml->list->item->temperature["value"];
-                            $presion = $xml->list->item->pressure["value"];
-                            $humedad = $xml->list->item->humidity["value"];
-                            $Coordenadas = $xml->list->item->city->coord["lon"];
-                            $Nombre = $xml->list->item->city["name"];
-                            $precipitacion = $xml->list->item->precipitation["mode"];
+                           include ("climaphp.php"); 
                             }
 
                         }
                             ?>
-                            <ul>
-                            <li>Temperatura :
-                            <?php echo($temperatura); ?> &deg;F
-                            </li>
-                            <li>Presion:
-                            <?php echo($presion); ?> hPa
-                            </li>
-                            <li>Humedad :
-                            <?php echo($humedad); ?>%
-                            </li>
-                            <li>Coordenadas :
-                            <?php echo($Coordenadas); ?>
-                            </li>
-                            <li>Precipitacion :
-                            <?php echo($precipitacion); ?>
-                            </li>
-                            </ul>
+
+
 
 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                             </div>
